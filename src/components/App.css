@@ -1,0 +1,36 @@
+.app {
+  background-color: green;
+}
+
+.message {
+  display: grid;
+  grid-template-columns: 55px auto 55px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.message:last-child{
+  margin-bottom: 0;
+}
+
+.message:nth-child(even)> div:first-child {
+  opacity: 0;
+}
+
+.message:nth-child(odd)> div:last-child {
+  opacity: 0;
+}
+
+.text {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: orange;
+  color: wheat;
+  display: flex;
+  align-items: center;
+}
+
+.message:nth-child(even) .text {
+  justify-content: flex-end;
+  background-color: red;
+}
