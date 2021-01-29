@@ -1,5 +1,11 @@
 .app {
   background-color: green;
+  height: 100%;
+}
+
+.walkthrough {
+  max-width: 40%;
+  margin: 0 auto;
 }
 
 .avatar {
@@ -15,6 +21,18 @@
   width: 30px;
 }
 
+@keyframes loader {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(0.6);
+  }
+}
+  
 .dots {
 grid-column-start: 2;
 display: flex;
@@ -30,6 +48,7 @@ height: 10px;
 width: 10px;
 border-radius: 50%;
 background: #588d52;
+animation: loader 1.5s infinite;
 }
 
 .typing.is-right .dots {
@@ -52,17 +71,7 @@ background: #588d52;
 animation-delay: 0.3s; 
 }
 
-@keyframes loader {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(0.6);
-  }
-}
+
 
 .message,
 .typing {

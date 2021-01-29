@@ -3,6 +3,7 @@ import React from 'react';
 import useInterval from "@use-it/interval";
 import man from '../images/man.svg'
 import woman from '../images/woman.svg'
+import { motion } from 'framer-motion';
 
 function App() {
   const [messageToShow, setMessageToShow] = React.useState(0)
@@ -43,17 +44,20 @@ function App() {
 
 function Message({ message }) {
   return (
-    <div className="message">
+    <motion.div className="message" initial={{ rotate: -5, scale: 0 }} animate={{ rotate: 0, scale: 1 }} >
       <div className="avatar"><img className='avatar__image' src={man} alt={man} /></div>
       <div className="text">{message.text}</div>
       <div className="avatar"><img className='avatar__image' src={woman} alt={woman} /></div>
-    </div>
+    </motion.div>
   )
 }
 
-function Typing() {
+function Typing({ even }) {
   return (
-    <div className="typing is-right is-left">
+    <motion.div className={`typing ${even ? 'is-right' : 'is-left'}`}
+      initial={{ rotate: 10, scale: 0 }}
+      animate={{ rotate: 0, scale: 1 }}
+    >
       <div className="dots">
         <div />
         <div />
@@ -61,8 +65,23 @@ function Typing() {
 
       </div>
 
-    </div>
+    </motion.div>
   )
 }
+
+// const vowels = ['а', 'я', 'о', 'ё', 'у', 'ю', 'ы', 'и', 'э', 'е'];
+
+// function findVowels(str) {
+
+//   return str.split('').reduce((result, i) => {
+//     if (vowels.includes(i)) {
+//       return result + 1
+//     }
+//     return result
+//   }, 0)
+// }
+
+
+// findVowels('кошка');
 
 export default App;
